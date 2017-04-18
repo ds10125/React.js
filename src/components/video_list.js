@@ -1,5 +1,5 @@
 import React from 'react'
-
+import VideoList from './video_list_item';
 
 const VideoList = (props) =>{
   return (
