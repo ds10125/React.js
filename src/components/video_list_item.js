@@ -6,7 +6,7 @@ const VideoListItem = ({video, onVideoSelect}) =>{
   const onVideoSelect = props.onVideoSelect
  */
  const imageUrl =  video.snippet.thumbnails.default.url;//from youtube-api
-console.log(video);
+ 
   return (
     <li onClick = {() => onVideoSelect(video)}
     className="list-group-item">
