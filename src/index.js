@@ -15,18 +15,23 @@ class App extends Component   {
       videos:[],
       selectedVideo:null
     };
-    //function(data) = (data) =>
-    YTSearch({key:API_KEY , term:'CPU'}, (videos) =>{
-      this.setState({
-          videos:videos,
-          selectedVideo:videos[0]
-      }); // state變數名稱跟值依樣, video:video可簡化為 video
-    })
+      this.videoSearch('ONE PIECE');
   }
+
+videoSearch(term){
+  //function(data) = (data) =>
+  YTSearch({key: API_KEY , term: term}, (videos) =>{
+    this.setState({
+        videos: videos,
+        selectedVideo: videos[0]
+    }); // state變數名稱跟值依樣, video:video可簡化為 video
+  })
+}
+
   render(){
     return (
     <div>
-      <SearchBar />
+      <SearchBar onSearchTermChange={term => this.videoSearch(term)} />
       <VideoDetail video={this.state.selectedVideo} />
       <VideoList
       onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
